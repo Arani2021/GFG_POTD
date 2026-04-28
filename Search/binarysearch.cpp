@@ -1,23 +1,23 @@
 #include<iostream>
 using namespace std;
 int binarySearch(int arr[],int size,int key){
-    int s = 0;
-    int e = size-1;
+    int start = 0;
+    int end = size-1;
     int mid = (s+e)/2;
 
-    while(s<=e){
+    while(start<=end){
         if(arr[mid] == key){
             return mid;
         }
         //go to right part
         if(key > arr[mid])
         {
-            s = mid+1;
+            start = mid+1;
         }
-        else{
-            e = e-1;
+        else{ // key< arr[mid]
+            end = mid-1;
         }
-        mid = (s+e)/2;
+        mid = (start+end)/2;
     }
     return -1;
 }
